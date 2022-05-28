@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo:5.0
+    restart: on-failure
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+
+  app:
+    image: lab_4_app:1.0
+    build: .
+    restart: on-failure
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_CONNSTRING: mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongodb
