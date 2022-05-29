@@ -110,3 +110,7 @@ cython_debug/
 /loader/data/ZNO_2020.csv
 /loader/data/sZNO_2019.csv
 /loader/data/sZNO_2020.csv
+/app/data/sZNO_2019.csv
+/app/data/sZNO_2020.csv
+/app/data/ZNO_2019.csv
+/app/data/ZNO_2020.csv
